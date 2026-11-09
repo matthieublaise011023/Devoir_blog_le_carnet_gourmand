@@ -1,7 +1,7 @@
 // ==========================================================================
 // 1. SÉLECTION DES ÉLÉMENTS
 // ==========================================================================
-const formulaire = document.querySelector('#formulaire-commentaire'); // AJOUTÉ
+const formulaire = document.querySelector('#formulaire-commentaire');
 const boutonPublier = document.querySelector('#bouton-publier');
 const champNom = document.querySelector('#nom');
 const champCommentaire = document.querySelector('#commentaire');
@@ -41,33 +41,41 @@ boutonPublier.addEventListener('click', function() {
     // 3. CRÉATION DYNAMIQUE DU COMMENTAIRE
     // ======================================================================
     
-    // A. La carte
     const carteCommentaire = document.createElement('div');
     carteCommentaire.className = 'carte-commentaire';
 
-    // B. Le nom
     const elementNom = document.createElement('p');
     elementNom.className = 'nom-auteur';
     elementNom.textContent = valeurNom;
 
-    // C. Le texte
     const elementTexte = document.createElement('p');
     elementTexte.className = 'texte-commentaire';
     elementTexte.textContent = valeurCommentaire;
 
-    // D. Le bouton supprimer
     const boutonSupprimer = document.createElement('button');
     boutonSupprimer.className = 'bouton-supprimer';
     boutonSupprimer.textContent = '🗑️ Supprimer';
 
-    // E. On assemble
+    // ======================================================================
+    // 4. SUPPRESSION DU COMMENTAIRE (Étape 5)
+    // ======================================================================
+    // On ajoute l'écoute sur le bouton supprimer
+    boutonSupprimer.addEventListener('click', function() {
+        // 'this' fait référence au bouton cliqué. 
+        // this.parentElement cible la div '.carte-commentaire' qui l'entoure.
+        // La méthode remove() détruit cet élément et tout son contenu.
+        this.parentElement.remove(); 
+    });
+
+    // ======================================================================
+    // 5. ASSEMBLAGE ET AJOUT À LA LISTE
+    // ======================================================================
     carteCommentaire.appendChild(elementNom);
     carteCommentaire.appendChild(elementTexte);
     carteCommentaire.appendChild(boutonSupprimer);
 
-    // F. On ajoute à la liste
     listeCommentaires.appendChild(carteCommentaire);
 
-    // G. On vide le formulaire
+    // On vide le formulaire
     formulaire.reset(); 
 });
