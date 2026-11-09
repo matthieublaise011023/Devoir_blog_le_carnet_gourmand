@@ -193,10 +193,11 @@ body {
     display: none; /* Caché par défaut, géré par JS */
 }
 
-/* Classe utilitaire pour le JS */
+/* SUPPRIMER CES 3 LIGNES :
 .cache {
     display: none !important;
 }
+*/
 
 /* Carte d'un commentaire individuel */
 .carte-commentaire {
