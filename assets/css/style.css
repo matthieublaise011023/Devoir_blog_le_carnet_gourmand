@@ -1,0 +1,250 @@
+/* ==========================================================================
+   1. RESET & BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f6f7fb;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. EN-TÊTE
+   ========================================================================== */
+.en-tete {
+    padding: 20px 16px;
+    border-bottom: 1px solid #e5e7eb; /* Trait fin de séparation */
+}
+
+.contenu-en-tete {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Centre le logo par rapport aux textes */
+    gap: 12px; /* Espace entre le logo et les textes */
+}
+
+.logo {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenu-en-tete h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.sous-titre {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   3. CONTENEUR PRINCIPAL (Flexbox)
+   ========================================================================== */
+.conteneur {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 24px 16px 40px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+    width: 100%;
+    align-items: stretch; /* Force les cartes à faire la même hauteur */
+}
+
+/* ==========================================================================
+   4. CARTES PRINCIPALES
+   ========================================================================== */
+.carte {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 16px;
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   5. ZONE RECETTE (Gauche)
+   ========================================================================== */
+.titre-recette {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.intro-recette {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.zone-recette {
+    background-color: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px;
+    /* Pas de flex: 1 ici, la zone garde sa taille naturelle */
+}
+
+.zone-recette h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+.zone-recette h3:first-child {
+    margin-top: 0;
+}
+
+.zone-recette ul,
+.zone-recette ol {
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.zone-recette li {
+    margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   6. FORMULAIRE & COMMENTAIRES (Droite)
+   ========================================================================== */
+.carte-commentaires h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.groupe-champ {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.groupe-champ label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.groupe-champ input,
+.groupe-champ textarea {
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.groupe-champ input:focus,
+.groupe-champ textarea:focus {
+    border-color: #2563eb;
+}
+
+.texte-aide {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.bouton-publier {
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Message d'erreur */
+.boite-erreur {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    display: none; /* Caché par défaut, géré par JS */
+}
+
+/* Classe utilitaire pour le JS */
+.cache {
+    display: none !important;
+}
+
+/* Carte d'un commentaire individuel */
+.carte-commentaire {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    background-color: #ffffff;
+}
+
+.carte-commentaire .nom-auteur {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.carte-commentaire .texte-commentaire {
+    margin-bottom: 12px;
+}
+
+.bouton-supprimer {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    border-radius: 10px;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   7. PIED DE PAGE
+   ========================================================================== */
+.pied-de-page {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    font-size: 14px;
+    border-top: 1px solid #e5e7eb; /* Trait fin de séparation */
+}
+
+/* ==========================================================================
+   8. RESPONSIVE (Breakpoint imposé : 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .carte {
+        flex: 1 1 100%;
+    }
+}
