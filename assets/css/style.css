@@ -22,16 +22,19 @@ body {
    2. EN-TÊTE
    ========================================================================== */
 .en-tete {
-    padding: 20px 16px;
-    border-bottom: 1px solid #e5e7eb; /* Trait fin de séparation */
+       border-bottom: 1px solid #e5e7eb;
+    /* Trait fin de séparation */
 }
 
 .contenu-en-tete {
     max-width: 1050px;
     margin: 0 auto;
+    padding: 20px 16px; /* Même padding latéral que le conteneur */
     display: flex;
-    align-items: center; /* Centre le logo par rapport aux textes */
-    gap: 12px; /* Espace entre le logo et les textes */
+    align-items: center;
+    /* Centre le logo par rapport aux textes */
+    gap: 12px;
+    /* Espace entre le logo et les textes */
 }
 
 .logo {
@@ -68,7 +71,8 @@ body {
     gap: 20px;
     flex: 1;
     width: 100%;
-    align-items: stretch; /* Force les cartes à faire la même hauteur */
+    align-items: stretch;
+    /* Force les cartes à faire la même hauteur */
 }
 
 /* ==========================================================================
@@ -190,14 +194,10 @@ body {
     margin-top: 16px;
     margin-bottom: 16px;
     font-size: 14px;
-    display: none; /* Caché par défaut, géré par JS */
+    display: none;
+    white-space: pre-line; /* AJOUT : Permet de prendre en compte les retours à la ligne (\n) */
+    /* Caché par défaut, géré par JS */
 }
-
-/* SUPPRIMER CES 3 LIGNES :
-.cache {
-    display: none !important;
-}
-*/
 
 /* Carte d'un commentaire individuel */
 .carte-commentaire {
@@ -238,7 +238,8 @@ body {
     padding: 20px;
     color: #6b7280;
     font-size: 14px;
-    border-top: 1px solid #e5e7eb; /* Trait fin de séparation */
+    border-top: 1px solid #e5e7eb;
+    /* Trait fin de séparation */
 }
 
 /* ==========================================================================
